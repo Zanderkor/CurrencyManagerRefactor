@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(45deg, rgb(93, 170, 59), rgb(86, 181, 184));
+  min-height: 100vh;
+  width: 100%;
+  font-size: 1.2vw;
+}
+
+@font-face {
+  font-family: 'Montserrat Alternates';
+  src: url('../assets/fonts/Montserrat_Alternates/MontserratAlternates-ExtraBold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat Alternates';
+  src: url('../assets/fonts/Montserrat_Alternates/MontserratAlternates-Medium.ttf');
+  font-weight: 300;
+  font-style: italic;
+}
+
+h1 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 50px;
+  color: rgb(44, 36, 61);
+}
+
+h2 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.5em;
+  text-align: center;  
+  color: rgb(44, 36, 61);
+}
+
+.input-container {
+  margin-top: 2%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  gap: 10px; /* расстояние между полями ввода */
+}
+
+input {
+  width: 10em;/* Фиксированная ширина */
+  height: 2em;/* Фиксированная высота */
+  /*font-size: 16px;  /* Размер шрифта */
+  box-sizing: border-box;  /* Учитывать границы и отступы в размерах */
+  padding: 10px; /* Отступы внутри input */
+  border: 1px solid #ccc;  /* Граница */
+  border-radius: 10px;  /* Закругленные углы */
+}
+
+.currency {
+  font-size: 1.3rem;
+
+}
+
+.reverseChange {
+  border-style: solid;
+  background: rgba(0, 0, 0, 0.0);
+  border: none;
+}
+#pickStatus{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  color: rgb(115, 16, 16);
+  margin-top: 10px;
+  margin-bottom: 0px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  visibility: visible;
+}
+
+.button-container {
+  display: flex;      
+  margin-top: 1%;
+  align-items: baseline;
+  align-content: center;
+  justify-content: center;
+  /*justify-content: space-between;  */
+  
+  }
+  
+  .button-container button{
+    white-space: nowrap;
+  }
+  
+  .button-container select{
+    flex: 1; /* Позволяем крайним элементам занимать доступное пространство */
+    max-width: 250px;    
+    margin: 0 10px; /* Отступ между элементами */
+    
+  }
+  
+
+ 
+  .pick-currency {
+    margin: 0 20px 0 20px;
+  }
+  .main-currencies-rates {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 100%;
+    margin-top: 20px;       
+    text-align: center;
+    color: rgb(54, 35, 23)
+  }
+.change {
+  font-family: 'Montserrat Alternates', sans-serif;
+  width: 7%;
+  height: 30px;
+  background: linear-gradient(180deg, rgb(154, 155, 190), rgb(30, 10, 122));
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 7px;
+  }
+
+.chart-container {
+ flex-direction: column;
+  margin-top: 10px;  
+  align-content: center;
+  justify-content: center;
+  display: flex;
+}
+
+.chartfield{
+  align-content: center;
+  justify-content: center;
+  display: flex;    
+  border: 3px solid rgba(57, 66, 61, 0.41);
+  border-radius: 5px;
+  width: 1000px;
+  background-color: #c8bdae;
+  height: 400px;
+  padding: 0 0 0 0;
+  margin: auto;
+  width: 60%;   
+}
+
+
+
+
+/*body {
+  background: linear-gradient(45deg, rgb(93, 170, 59), rgb(86, 181, 184));
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}*/
