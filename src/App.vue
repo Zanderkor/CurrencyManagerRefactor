@@ -3,16 +3,27 @@
   <body>
     <h1>Валютный менеджер</h1>
     <div class="input-container">
-      <p> {{ currencyShortNameOnHand }} </p>
+      <div class="shortname">
+        <p> {{ currencyShortNameOnHand }} </p>
+      </div>
       <input class="currency" ref="currencyForTrade" placeholder="Валюта на руках" type="number" v-model="curInHand"
-        @input="valueAfterChange()"></input>
-      <button class="reverseChange" title="Наоборот" @click="reverseCurrency()"><svg xmlns="http://www.w3.org/2000/svg"
-          id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24">
-          <path
-            d="M24,12.5c0,4.136-3.364,7.5-7.5,7.5H1.293l3.146,3.146c.195,.195,.195,.512,0,.707-.098,.098-.226,.146-.354,.146s-.256-.049-.354-.146L.439,20.561c-.585-.585-.585-1.536,0-2.121l3.293-3.293c.195-.195,.512-.195,.707,0s.195,.512,0,.707l-3.146,3.146h15.207c3.584,0,6.5-2.916,6.5-6.5,0-.276,.224-.5,.5-.5s.5,.224,.5,.5ZM.5,12c.276,0,.5-.224,.5-.5,0-3.584,2.916-6.5,6.5-6.5h15.207l-3.146,3.146c-.195,.195-.195,.512,0,.707,.098,.098,.226,.146,.354,.146s.256-.049,.354-.146l3.293-3.293c.585-.585,.585-1.536,0-2.121L20.268,.146c-.195-.195-.512-.195-.707,0s-.195,.512,0,.707l3.146,3.146H7.5C3.364,4,0,7.364,0,11.5c0,.276,.224,.5,.5,.5Z" />
-        </svg></button>
-      <input class="currency" ref="currencyTradedValue" placeholder="После обмена" v-model="exchangeValue"></input>
-      <p>{{ currencyShortName }}</p>
+        @input="valueAfterChange()">
+      </input>
+      <div class="reverseburron">
+        <button class="reverseChange" title="Наоборот" @click="reverseCurrency()"><svg
+            xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 64 64">
+            <path
+              d="M 32 6 C 17.641 6 6 17.641 6 32 C 6 33.147 6.0844688 34.273859 6.2304688 35.380859 L 10.357422 35.865234 C 10.131422 34.608234 10 33.321 10 32 C 10 19.869 19.869 10 32 10 C 38.615909 10 44.551673 12.942341 48.587891 17.580078 L 45.505859 21.652344 L 58 22 L 54.275391 10.068359 L 51.050781 14.328125 C 46.302784 9.2111633 39.530462 6 32 6 z M 53.642578 28.134766 C 53.868578 29.391766 54 30.679 54 32 C 54 44.131 44.131 54 32 54 C 25.383867 54 19.447695 51.057454 15.412109 46.419922 L 18.494141 42.347656 L 6 42 L 9.7246094 53.931641 L 12.945312 49.675781 C 17.692812 54.79188 24.469735 58 32 58 C 46.359 58 58 46.359 58 32 C 58 30.853 57.914531 29.726141 57.769531 28.619141 L 53.642578 28.134766 z">
+            </path>
+          </svg>
+        </button>
+      </div>
+      <input class="currency" ref="currencyTradedValue" placeholder="После обмена" v-model="exchangeValue">
+    </input>
+      <div class="shortname">
+        <p>{{ currencyShortName }}</p>
+      </div>
+
     </div>
     <p id="pickStatus" ref="changePickStatus">Валюта не выбрана</p>
     <div class="button-container">

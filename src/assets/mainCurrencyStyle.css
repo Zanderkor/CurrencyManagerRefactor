@@ -35,40 +35,110 @@ h1 {
 h2 {
   font-family: 'Montserrat Alternates', sans-serif;
   font-size: 1.5em;
-  text-align: center;  
+  text-align: center;
   color: rgb(44, 36, 61);
 }
 
+p {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 100%;
+}
+
 .input-container {
-  margin-top: 2%;
   align-items: center;
+  margin-top: 2%;
   align-content: center;
   justify-content: center;
   display: flex;
-  gap: 10px; /* расстояние между полями ввода */
+  gap: 0.8em; /* расстояние между полями ввода */
 }
 
-input {
-  width: 10em;/* Фиксированная ширина */
-  height: 2em;/* Фиксированная высота */
-  /*font-size: 16px;  /* Размер шрифта */
-  box-sizing: border-box;  /* Учитывать границы и отступы в размерах */
-  padding: 10px; /* Отступы внутри input */
-  border: 1px solid #ccc;  /* Граница */
-  border-radius: 10px;  /* Закругленные углы */
+.input-container input {
+  flex: 1;
+  max-width: 10em; 
+  height: 2em;  
+  box-sizing: border-box;  
+  padding: 10px;  
+  border: 1px solid #ccc; 
+  border-radius: 10px;  
+  margin: 0 10px;
+}
+
+.input-container .shortname {
+  box-sizing: border-box;
+  white-space: nowrap;
+  margin: 0 20px;
+  align-items: center;
+  justify-content: center;
+  max-width: 2em;
+  flex: 1;
 }
 
 .currency {
   font-size: 1.3rem;
+  flex: 0 0 100px;
+  /* Фиксированная ширина */
+  padding: 5px;
+}
 
+.reverseburron {
+  margin: 0 0 0 0;  
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
 }
 
 .reverseChange {
-  border-style: solid;
+  margin: 0 0 0 0;   
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
   background: rgba(0, 0, 0, 0.0);
-  border: none;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: rgb(15, 11, 11);
+  box-shadow: 0 0 0.2em 0.1em;  
 }
-#pickStatus{
+
+.reverseChange svg {
+  margin: 0 0 0 0;
+}
+
+.reverseChange:hover {  
+  cursor: pointer;
+  padding: auto;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  animation: 0.2s linear rotate;
+}
+
+.reverseChange svg:hover {
+  margin: 0 0 0 0;
+}
+
+.reverseChange:active {  
+  padding: auto;  
+  cursor: pointer;  
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  box-shadow: none;
+}
+
+#pickStatus {
   font-family: 'Montserrat Alternates', sans-serif;
   font-style: italic;
   font-weight: 300;
@@ -83,40 +153,40 @@ input {
 }
 
 .button-container {
-  display: flex;      
+  display: flex;
   margin-top: 1%;
   align-items: baseline;
   align-content: center;
   justify-content: center;
-  /*justify-content: space-between;  */
-  
-  }
-  
-  .button-container button{
-    white-space: nowrap;
-  }
-  
-  .button-container select{
-    flex: 1; /* Позволяем крайним элементам занимать доступное пространство */
-    max-width: 250px;    
-    margin: 0 10px; /* Отступ между элементами */
-    
-  }
-  
+}
 
- 
-  .pick-currency {
-    margin: 0 20px 0 20px;
-  }
-  .main-currencies-rates {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 100;
-    font-style: italic;
-    font-size: 100%;
-    margin-top: 20px;       
-    text-align: center;
-    color: rgb(54, 35, 23)
-  }
+.button-container button {
+  white-space: nowrap;
+}
+
+.button-container button:hover {
+  border-width: 5px;
+  border-color: red;
+}
+
+.button-container select {
+  flex: 1;  
+  max-width: 250px;
+  margin: 0 10px;
+}
+
+
+
+.pick-currency {
+  margin: 0 20px 0 20px;
+}
+
+.main-currencies-rates {  
+  margin-top: 20px;
+  text-align: center;
+  color: rgb(54, 35, 23)
+}
+
 .change {
   font-family: 'Montserrat Alternates', sans-serif;
   width: 7%;
@@ -125,20 +195,20 @@ input {
   color: rgb(0, 0, 0);
   border: none;
   border-radius: 7px;
-  }
+}
 
 .chart-container {
- flex-direction: column;
-  margin-top: 10px;  
+  flex-direction: column;
+  margin-top: 10px;
   align-content: center;
   justify-content: center;
   display: flex;
 }
 
-.chartfield{
+.chartfield {
   align-content: center;
   justify-content: center;
-  display: flex;    
+  display: flex;
   border: 3px solid rgba(57, 66, 61, 0.41);
   border-radius: 5px;
   width: 1000px;
@@ -146,7 +216,7 @@ input {
   height: 400px;
   padding: 0 0 0 0;
   margin: auto;
-  width: 60%;   
+  width: 60%;
 }
 
 
