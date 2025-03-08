@@ -3,8 +3,8 @@
   padding: 0;
 }
 
-body {
-  background: linear-gradient(45deg, rgb(93, 170, 59), rgb(86, 181, 184));
+body {  
+  background: rgba(243, 235, 223, 0);
   min-height: 100vh;
   width: 100%;
   font-size: 1.2vw;
@@ -26,16 +26,17 @@ body {
 
 h1 {
   font-family: 'Montserrat Alternates', sans-serif;
-  font-size: 3em;
-  text-align: center;
-  margin-top: 50px;
+  font-size: 2em;
+  /*text-align: center;*/
+  margin-top: 0.1em;
+  margin-left: 2em;
   color: rgb(44, 36, 61);
 }
 
 h2 {
   font-family: 'Montserrat Alternates', sans-serif;
   font-size: 1.5em;
-  text-align: center;
+  /*text-align: center;*/
   color: rgb(44, 36, 61);
 }
 
@@ -49,15 +50,15 @@ p {
 .input-container {
   align-items: center;
   margin-top: 2%;
-  align-content: center;
-  justify-content: center;
+  /*align-content: center;*/
+  /*justify-content: center;*/
   display: flex;
-  gap: 0.8em; /* расстояние между полями ввода */
+  gap: 0.5em; /* расстояние между полями ввода */
 }
 
 .input-container input {
   flex: 1;
-  max-width: 10em; 
+  max-width: 12em; 
   height: 2em;  
   box-sizing: border-box;  
   padding: 10px;  
@@ -142,7 +143,7 @@ p {
   font-family: 'Montserrat Alternates', sans-serif;
   font-style: italic;
   font-weight: 300;
-  color: rgb(115, 16, 16);
+  color: rgb(148, 19, 19);
   margin-top: 10px;
   margin-bottom: 0px;
   align-items: center;
@@ -160,18 +161,9 @@ p {
   justify-content: center;
 }
 
-.button-container button {
-  white-space: nowrap;
-}
-
-.button-container button:hover {
-  border-width: 5px;
-  border-color: red;
-}
-
 .button-container select {
   flex: 1;  
-  max-width: 250px;
+  max-width: 20em;
   margin: 0 10px;
 }
 
@@ -181,9 +173,12 @@ p {
   margin: 0 20px 0 20px;
 }
 
-.main-currencies-rates {  
-  margin-top: 20px;
-  text-align: center;
+.main-currencies-rates {
+  /*display: flex;
+  justify-content: center;
+  align-items: center;
+  /*text-align: left;*/  
+  white-space: pre-wrap;
   color: rgb(54, 35, 23)
 }
 
@@ -191,24 +186,24 @@ p {
   font-family: 'Montserrat Alternates', sans-serif;
   width: 7%;
   height: 30px;
-  background: linear-gradient(180deg, rgb(154, 155, 190), rgb(30, 10, 122));
+  background: white;
   color: rgb(0, 0, 0);
-  border: none;
+  border: solid;
+  border-width: 0.05cap;
   border-radius: 7px;
 }
 
-.chart-container {
-  flex-direction: column;
-  margin-top: 10px;
-  align-content: center;
-  justify-content: center;
-  display: flex;
+.change:hover{
+  background: #c8bdae;
+  transition: .2s linear inset;
 }
 
-.chartfield {
-  align-content: center;
+.chart-container {
+  /*flex-direction: column;*/
+  margin-top: 10px;
+  /*align-content: center;
   justify-content: center;
-  display: flex;
+  display: flex;*/
   border: 3px solid rgba(57, 66, 61, 0.41);
   border-radius: 5px;
   width: 1000px;
@@ -217,6 +212,17 @@ p {
   padding: 0 0 0 0;
   margin: auto;
   width: 60%;
+}
+
+/*.chartfield {
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  
+}*/
+#my-chart-id{
+  height: 200px;
+  fill: true;
 }
 
 

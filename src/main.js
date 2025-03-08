@@ -1,7 +1,8 @@
-import './assets/mainCurrencyStyle.css'
-import { Bar } from 'vue-chartjs'
+import './components/mainCurrencyStyle.css'
+
 import { createApp } from 'vue'
 import App from './App.vue'
+
 
 
 createApp(App).mount('#app')
