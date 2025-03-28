@@ -2,12 +2,15 @@
   margin: 0;
   padding: 0;
 }
-
-body {  
-  background: rgba(243, 235, 223, 0);
-  min-height: 100vh;
-  width: 100%;
+html {
   font-size: 1.2vw;
+}
+.body-box {
+  /*border: 3px solid #e70606; /*временная рамка*/
+  display: flex;  
+  background: rgba(243, 235, 223, 0);  
+  width: 98vw;
+  height: 90vh;  
 }
 
 @font-face {
@@ -25,13 +28,15 @@ body {
 }
 
 h1 {
+  max-width: 98vw;
+  /*border: 3px solid #140909; /*временная рамка*/
   font-family: 'Montserrat Alternates', sans-serif;
   font-size: 2em;
-  /*text-align: center;*/
-  margin-top: 0.1em;
-  margin-left: 2em;
+  /*text-align: center;*/  
   color: rgb(44, 36, 61);
-}
+  box-sizing: border-box;
+  padding-left: 15%;
+} 
 
 h2 {
   font-family: 'Montserrat Alternates', sans-serif;
@@ -44,48 +49,53 @@ p {
   font-family: 'Montserrat Alternates', sans-serif;
   font-weight: 100;
   font-style: italic;
-  font-size: 100%;
+  font-size: 1em;
 }
 
+.functional-interface {  
+    margin: 0 0 0 1%;
+    /*border: 3px solid #140909; /*временная рамка*/
+    width: 60%;   
+}
+/*Стили блока для ввода валюты, кратких значений и кнопки реверса*/
 .input-container {
+  /*border: 3px solid #140909; /*временная рамка*/
   align-items: center;
-  margin-top: 2%;
-  /*align-content: center;*/
-  /*justify-content: center;*/
-  display: flex;
-  gap: 0.5em; /* расстояние между полями ввода */
+  justify-content: center;
+  margin-top: 2%;  
+  display: flex;  
+  height: 10%;
 }
 
-.input-container input {
-  flex: 1;
-  max-width: 12em; 
-  height: 2em;  
-  box-sizing: border-box;  
-  padding: 10px;  
+.input-container input {  
+  max-width: 12rem; 
+  height: 2.5rem;  
+  box-sizing: border-box;
+  padding: 0.5em;  
   border: 1px solid #ccc; 
-  border-radius: 10px;  
-  margin: 0 10px;
+  border-radius: 0.5rem;  
+  margin: 1em;
+  font-size: 1.2rem;
 }
 
 .input-container .shortname {
-  box-sizing: border-box;
-  white-space: nowrap;
-  margin: 0 20px;
+  padding: 0 0 0 0;
+  display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
-  max-width: 2em;
-  flex: 1;
+  font-size: 1.5rem;
+  /*border: 3px solid #ea0c0c; /*временная рамка*/
+  max-width: 3rem;   
 }
 
-.currency {
-  font-size: 1.3rem;
-  flex: 0 0 100px;
-  /* Фиксированная ширина */
-  padding: 5px;
-}
-
-.reverseburron {
-  margin: 0 0 0 0;  
+.reverseburron {   
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 0 0 0;
+  width: 2.2em;
+  height: 2.2em;   
 }
 
 @keyframes rotate {
@@ -99,6 +109,8 @@ p {
 }
 
 .reverseChange {
+  width: 100%;
+  height: 100%; 
   margin: 0 0 0 0;   
   align-items: center;
   align-content: center;
@@ -112,10 +124,14 @@ p {
 }
 
 .reverseChange svg {
+  width: 100%;
+  height: 100%;
+  display: flex;
   margin: 0 0 0 0;
 }
 
-.reverseChange:hover {  
+.reverseChange:hover {
+  background-color: #f2efef;  
   cursor: pointer;
   padding: auto;
   align-items: center;
@@ -138,101 +154,139 @@ p {
   display: flex;
   box-shadow: none;
 }
+/*конец блока*/
 
+/* Стиль статуса выбора валюты */
 #pickStatus {
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  /*border: 3px solid #0b0a0a; /*временная рамка*/
+  font-size: 1.2em;
   font-family: 'Montserrat Alternates', sans-serif;
   font-style: italic;
   font-weight: 300;
   color: rgb(148, 19, 19);
-  margin-top: 10px;
-  margin-bottom: 0px;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  display: flex;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;  
   visibility: visible;
 }
+/*конец блока*/
 
+/*Блок стилей для выбора валюты на обмен*/
 .button-container {
-  display: flex;
+  /*border: 3px solid #ea0c0c; /*временная рамка*/  
   margin-top: 1%;
-  align-items: baseline;
-  align-content: center;
-  justify-content: center;
-}
-
-.button-container select {
-  flex: 1;  
-  max-width: 20em;
-  margin: 0 10px;
-}
-
-
-
-.pick-currency {
-  margin: 0 20px 0 20px;
-}
-
-.main-currencies-rates {
-  /*display: flex;
-  justify-content: center;
-  align-items: center;
-  /*text-align: left;*/  
-  white-space: pre-wrap;
-  color: rgb(54, 35, 23)
+  display: flex;
+  flex-direction: column; 
+  height: 20%;
+  gap: 0.5em;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  box-sizing: border-box;
 }
 
 .change {
+  width: 7em;
+  height: 1.5em;
+  margin: 0 0.85em;
+  padding: 0 0 0 0;
+  border-radius: 0.5rem;
   font-family: 'Montserrat Alternates', sans-serif;
-  width: 7%;
-  height: 30px;
-  background: white;
-  color: rgb(0, 0, 0);
-  border: solid;
-  border-width: 0.05cap;
-  border-radius: 7px;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 1.2em;
+  border-width: 0.15em;
 }
 
 .change:hover{
-  background: #c8bdae;
-  transition: .2s linear inset;
+  background-color: #b9b5b5; 
 }
 
+.pick-currency {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 1em;
+  display: flex;  
+  border: 3px solid #116d19;
+  border-radius: 0.3rem;
+  flex: 1;
+  padding: 0 0 0 0;  
+  margin: 0 1em;
+  max-width: 30em;   
+}
+/*конец блока*/
+
+/*Стили блока графиков*/
 .chart-container {
-  /*flex-direction: column;*/
-  margin-top: 10px;
-  /*align-content: center;
-  justify-content: center;
-  display: flex;*/
-  border: 3px solid rgba(57, 66, 61, 0.41);
-  border-radius: 5px;
-  width: 1000px;
-  background-color: #c8bdae;
-  height: 400px;
-  padding: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
   margin: auto;
-  width: 60%;
+  border: 0.2em solid rgba(57, 66, 61, 0.41);  
+  background-color: #cacaca;
+  height: 57%;
+  padding: 10 0 10 0;  
+  width: 99%;
 }
 
-/*.chartfield {
-  align-content: center;
-  justify-content: center;
+.chartfield {  
+  height: 90%;
+  width: 100%;  
+}
+/* Конец блока */
+
+
+.information-interface {
   display: flex;
+  flex-direction: column;
+  margin: 0 1% 0 0;
+  /*border: 3px solid #0b0a0a; /*временная рамка*/
+  width: 40%;  
+  padding: 1em;
+}
+.main-currencies-rates {
+  /*border: 2px solid #ce2020; /*временная рамка*/  
+  white-space: pre-wrap;
+  color: rgb(54, 35, 23);
+  font-size: 1.3rem;
+  margin-bottom: 0.2em;
   
-}*/
-#my-chart-id{
-  height: 200px;
-  fill: true;
 }
 
+hr {  
+  border-width: 0.3em;
+  border-color: #847b7b;
+}
 
+.wallet-news {
+  margin-top: 0.2em;
+  font-size: 1.5em;
+  border: 2px solid #847b7b; /*временная рамка*/
+  
+}
 
+@media (max-width: 768px) {
+  h1 {
+    margin-top: 1em;
+    padding: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  .functional-interface {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+  }
 
-/*body {
-  background: linear-gradient(45deg, rgb(93, 170, 59), rgb(86, 181, 184));
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}*/
+  .information-interface {
+      width: 100%;
+  }
+
+  .body-box {
+    flex-direction: column;
+  }
+}

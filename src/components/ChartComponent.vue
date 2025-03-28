@@ -1,8 +1,9 @@
 <template>
     <div class="chart-container">
-        <h2>График изменения курса валюты к рублю</h2>
-        <Line ref="myChart" id="my-chart-id2" :options="chartOptions" :data="chartData" />        
-        <!--<div class="chartfield"></div>-->
+        <h2>График изменения курса валюты к рублю</h2>                
+        <div class="chartfield">
+            <Line ref="myChart" id="my-chart-id2" :options="chartOptions" :data="chartData" />
+        </div>
     </div>
 </template>
 
@@ -48,9 +49,9 @@ export default {
                         //beginAtZero: true,
                         min: null,
                         max: null,
-                        /*ticks: {
+                        ticks: {
                           stepSize: 5,
-                        }*/
+                        }
                     }
                 },
                 maintainAspectRatio: false,
@@ -175,4 +176,4 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped></style>

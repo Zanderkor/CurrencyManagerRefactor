@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;  
+  background: rgba(243, 235, 223, 0);  
+  width: 97vw;
+  height: 97vh;
+  font-size: 1.2vw;
+}
+
+@font-face {
+  font-family: 'Montserrat Alternates';
+  src: url('../assets/fonts/Montserrat_Alternates/MontserratAlternates-ExtraBold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat Alternates';
+  src: url('../assets/fonts/Montserrat_Alternates/MontserratAlternates-Medium.ttf');
+  font-weight: 300;
+  font-style: italic;
+}
+
+h1 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 2em;
+  /*text-align: center;*/
+  margin-top: 0.1em;
+  margin-left: 2em;
+  color: rgb(44, 36, 61);
+} 
+
+h2 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.5em;
+  /*text-align: center;*/
+  color: rgb(44, 36, 61);
+}
+
+p {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 100%;
+}
+
+.functional-interface {
+  margin-left: 1%;
+  border: 3px solid #140909; /*временная рамка*/
+  width: 60%;
+  height: 100%;
+}
+.input-container {
+  align-items: center;
+  margin-top: 2%;
+  /*align-content: center;*/
+  /*justify-content: center;*/
+  display: flex;
+  gap: 0.5em; /* расстояние между полями ввода */
+}
+
+
+
+.currency {
+  font-size: 1.3rem;
+  flex: 0 0 100px;
+  /* Фиксированная ширина */
+  padding: 5px;
+}
+
+.reverseburron {
+  margin: 0 0 0 0;  
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+.reverseChange {
+  margin: 0 0 0 0;   
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  background: rgba(0, 0, 0, 0.0);
+  border-radius: 50%;
+  border-style: solid;
+  border-color: rgb(15, 11, 11);
+  box-shadow: 0 0 0.2em 0.1em;  
+}
+
+.reverseChange svg {
+  margin: 0 0 0 0;
+}
+
+.reverseChange:hover {  
+  cursor: pointer;
+  padding: auto;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  animation: 0.2s linear rotate;
+}
+
+.reverseChange svg:hover {
+  margin: 0 0 0 0;
+}
+
+.reverseChange:active {  
+  padding: auto;  
+  cursor: pointer;  
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  box-shadow: none;
+}
+
+#pickStatus {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  color: rgb(148, 19, 19);
+  margin-top: 10px;
+  margin-bottom: 0px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  visibility: visible;
+}
+
+.button-container {
+  display: flex;
+  margin-top: 1%;
+  align-items: baseline;
+  align-content: center;
+  justify-content: center;
+}
+
+.button-container select {
+  flex: 1;  
+  max-width: 20em;
+  margin: 0 2em;
+}
+
+
+
+.pick-currency {
+  margin: 0 20px 0 20px;
+}
+
+.change {
+  font-family: 'Montserrat Alternates', sans-serif;
+  width: 7%;
+  height: 30px;
+  background: white;
+  color: rgb(0, 0, 0);
+  border: solid;
+  border-width: 0.05cap;
+  border-radius: 7px;
+}
+
+.change:hover{
+  background: #c8bdae;
+  transition: .2s linear inset;
+}
+
+.chart-container {
+  /*flex-direction: column;*/
+  margin-top: 50px;
+  /*align-content: center;
+  justify-content: center;
+  display: flex;*/
+  border: 3px solid rgba(57, 66, 61, 0.41);
+  border-radius: 5px;
+  /*width: 2000px;*/
+  background-color: #c8bdae;
+  height: 50vh;
+  padding: 10 0 10 0;
+  /*margin: auto;*/
+  width: 95%;
+}
+
+.chartfield {
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  height: 90%;
+  width: 100%;  
+}
+#my-chart-id2{
+  height: 200px;
+  fill: true;
+}
+
+.information-interface {
+  border: 3px solid #0b0a0a; /*временная рамка*/
+  width: 40%;
+  height: 100%;
+  padding: 1em;
+}
+
+.main-currencies-rates {
+  border: 2px solid #ce2020; /*временная рамка*/
+  /*display: flex;
+  justify-content: center;
+  align-items: center;
+  /*text-align: left;*/  
+  white-space: pre-wrap;
+  color: rgb(54, 35, 23)
+} */
+
+
+/*body {
+  background: linear-gradient(45deg, rgb(93, 170, 59), rgb(86, 181, 184));
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}*/

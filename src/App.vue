@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-
+  </head>  
   <body>
-    <h1>Валютный менеджер</h1>
+    <h1>Валютный менеджер</h1>    
    <!-- <Test />-->
+    <div class="body-box">
+    <div class="functional-interface">
     <div class="input-container">
       <div class="shortname">
         <p> {{ currencyShortNameOnHand }} </p>
@@ -37,15 +38,26 @@
         <option v-for="curNameFirst in currencyArrayForSelectOnHand" :value="curNameFirst">{{ curNameFirst }}
         </option>
       </select>
-      <button class="change" @click="valueAfterChange">Обмен</button>
+      <button class="change" @click="valueAfterChange">Обмен на:</button>
       <select class="pick-currency" v-model="currencyInfoChart" @change="callBuildChart">
         <option disabled value="">Валюта на которую меняете</option>
         <option>RUB - Российский рубль</option>
         <option v-for="curName in currencyArrayForSelect" :value="curName">{{ curName }}</option>
       </select>
-    </div>
-    <p class="main-currencies-rates">{{ majorCurrenciesRates }}</p>
+    </div>    
     <ChartComponent :dataForChartBuilding="childObject" @sendingData="currencyShortNameFromComponent" @callAppFunction="valueAfterChange" ref="child" />
+  </div>
+  <div class="information-interface">
+  <div class="main-currencies-rates">
+    <p >{{ majorCurrenciesRates }}</p>
+  </div>
+  <hr>
+  <div class="wallet-news">
+    <p>Новостной блок</p>
+    <p style="color: red; font-size: 2rem;">!Раздел в разработке!</p>
+  </div>
+  </div>
+</div>
   </body>
 </template>
 <script>
@@ -113,8 +125,8 @@ export default {
           let currentValue = this.currencyObjectsList[shortName]['Value'];
           let previousValue = this.currencyObjectsList[shortName]['Previous'];
           function trend(a, b) {
-            if (a > b) { return 'руб. ▲' }
-            else if (a < b) { return 'руб. ▼' }
+            if (a > b) { return `руб. ▲` }
+            else if (a < b) { return `руб. ▼` }
             return ''
           }
           switch (shortName) {
@@ -131,15 +143,15 @@ export default {
         }
       }
       this.currencyArrayForSelect.sort((a, b) => {
-        const nameA = a.split(' - ')[1].toLowerCase();  // Получаем название после дефиса для a
-        const nameB = b.split(' - ')[1].toLowerCase();  // Получаем название после дефиса для b
+        const nameA = a.split(' - ')[1].toLowerCase();  
+        const nameB = b.split(' - ')[1].toLowerCase();  
         if (nameA < nameB) {
-          return -1;  // Если a идет перед b
+          return -1;  
         }
         if (nameA > nameB) {
-          return 1;   // Если a идет после b
+          return 1;   
         }
-        return 0;   // Если равны
+        return 0;  
       });
       this.currencyArrayForSelectOnHand = this.currencyArrayForSelect;
       this.currencyShortName = this.currencyInfoChart.substring(0, 3);
