@@ -37,7 +37,7 @@ export default {
                     pointRadius: 1,
                     pointHoverRadius: 5,
                     borderWidth: 1,
-                    borderColor: 'rgb(169, 31, 31)',
+                    borderColor: 'rgb(71, 106, 212)',
                     backgroundColor: null,
                     fill: true,
                 }]
@@ -163,8 +163,8 @@ export default {
                             backgroundColor: (context) => {
                                 const ctx = context.chart.ctx;
                                 var gradient = ctx.createLinearGradient(0, 0, 0, 300);
-                                gradient.addColorStop(1, 'rgba(169, 31, 31, 0.0)');
-                                gradient.addColorStop(0, 'rgba(169, 31, 31, 1)');
+                                gradient.addColorStop(1, 'rgba(71, 106, 212, 0.0)');
+                                gradient.addColorStop(0, 'rgba(71, 106, 212, 1)');
                                 return gradient
                             },
                         }]
