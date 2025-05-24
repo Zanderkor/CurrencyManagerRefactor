@@ -9,26 +9,26 @@
     <h1>Валютный менеджер</h1>
     <!-- <Test />-->
     <p id="pickStatus" ref="changePickStatus">Не выбрана валюта для обмена</p>
-    <div class="body-box">
+    <div class="body-box">      
       <div class="functional-interface">
-        <div class="input-and-pick">
+        <div class="input-and-pick">                   
           <div class="button-container">
             <div class="main-currencies-rates">
-              <p>{{ majorCurrenciesRates }}</p>
-            </div>
-            <!--<button class="change" @click="valueAfterChange">Обмен на:</button>-->
+          <p>{{ majorCurrenciesRates }}</p>
+        </div>            
+            <!--<button class="change" @click="valueAfterChange">Обмен на:</button>-->            
           </div>
-          <div class="input-container">
+          <div class="input-container">            
             <div class="inputShortName">
-              <input class="currency" ref="currencyForTrade" placeholder="Валюта на руках" type="number"
-                v-model="onHand" @input="valueAfterChange"></input>
-              <select class="pick-currencyLeft" v-model="currencyTopSpace" @change="callBuildChart">
-                <option disabled value="">Валюта которую хотите обменять</option>
-                <option style="display: none">{{ currencyShortNameOnHand }}</option>
-                <option>RUB - Российский рубль</option>
-                <option v-for="curNameFirst in currencyArrayForSelect" :value="curNameFirst">{{ curNameFirst }}
-                </option>
-              </select>
+            <input class="currency" ref="currencyForTrade" placeholder="Валюта на руках" type="number" v-model="onHand"
+              @input="valueAfterChange"></input>
+              <select class="pick-currencyLeft" v-model="currencyInfo" @change="currencySelectOnHand">
+              <option disabled value="">Валюта которую хотите обменять</option>
+              <option style="display: none">{{ currencyShortNameOnHand }}</option>
+              <option>RUB - Российский рубль</option>
+              <option v-for="curNameFirst in currencyArrayForSelectOnHand" :value="curNameFirst">{{ curNameFirst }}
+              </option>
+            </select>
               <!--<p class="shortname"> {{ currencyShortNameOnHand }} </p>-->
             </div>
             <div class="reverseburron">
@@ -41,22 +41,23 @@
               </button>
             </div>
             <div class="inputShortName">
-              <input class="currency" ref="currencyTradedValue" placeholder="После обмена" v-model="exchangeValue">
-              </input>
-              <select class="pick-currencyRight" v-model="currencyBotSpace" @change="callBuildChart">
-                <option disabled value="">Валюта на которую меняете</option>
-                <option style="display: none"> {{ currencyShortName }} </option>
-                <option>RUB - Российский рубль</option>
-                <option v-for="curName in currencyArrayForSelect" :value="curName">{{ curName }}</option>
-              </select>
-              <!--<p class="shortname">{{ currencyShortName }}</p>-->
-            </div>
-          </div>
+            <input class="currency" ref="currencyTradedValue" placeholder="После обмена" v-model="exchangeValue">
+            </input>
+            <select class="pick-currencyRight" v-model="currencyInfoChart" @change="callBuildChart">
+              <option disabled value="">Валюта на которую меняете</option>
+              <option style="display: none"> {{ currencyShortName }} </option>
+              <option>RUB - Российский рубль</option>
+              <option v-for="curName in currencyArrayForSelect" :value="curName">{{ curName }}</option>
+            </select>
+            <!--<p class="shortname">{{ currencyShortName }}</p>-->                         
+            </div>            
+          </div> 
         </div>
-        <ChartComponent :dataForChartBuilding="childObjectCurrency" @callAppFunction="valueAfterChange" ref="child" />
+        <ChartComponent :dataForChartBuilding="childObjectBotCurrency" :secondDataForChartBuilding="childObjectTopCurrency" @sendingData="currencyShortNameFromComponent"
+          @callAppFunction="valueAfterChange" ref="child" />
       </div>
       <div class="information-interface">
-
+        
         <hr>
         <div class="wallet-news">
           <p>Новостной блок</p>
@@ -83,12 +84,16 @@ export default {
       currencyArrayForSelectOnHand: [],
       currencyArrayForSelect: [],
       currencyObjectsList: {},
-      currencyTopSpace: '',
-      currencyBotSpace: '',
+      currencyInfo: '',
+      currencyInfoChart: '',
       currencyShortNameOnHand: '',
-      currencyShortName: '',      
-      childObjectCurrency: {
-        selectedCurrency: [],
+      currencyShortName: '',
+      childObjectTopCurrency: {
+        selectedCurrency: '',
+        masterCurrensyList: '',
+      },
+      childObjectBotCurrency: {
+        selectedCurrency: '',
         warnMessage: '',
         masterCurrensyList: ''
       },
@@ -99,25 +104,23 @@ export default {
   },
   methods: {
     async callBuildChart() {
-      this.currencyShortNameOnHand = this.currencyTopSpace.substring(0, 3);
-      this.currencyTopSpace = this.currencyShortNameOnHand;
-      this.currencyShortName = this.currencyBotSpace.substring(0, 3);
-      this.currencyBotSpace = this.currencyShortName;
-      this.childObjectCurrency.selectedCurrency=[]; //при вызове функции массив всегда должен быть пустым
       console.log("Вызов колбэка")
-      if (this.currencyBotSpace!='RUB' && this.currencyBotSpace!='' && this.currencyTopSpace!='RUB' && this.currencyTopSpace!='') {
-      this.childObjectCurrency.selectedCurrency.push(this.currencyTopSpace, this.currencyBotSpace)
-      } else if (this.currencyBotSpace!='RUB' && this.currencyBotSpace!='') {
-        this.childObjectCurrency.selectedCurrency.push(this.currencyBotSpace)
-      } else if (this.currencyTopSpace!='RUB' && this.currencyTopSpace!='') {
-        this.childObjectCurrency.selectedCurrency.push(this.currencyTopSpace)
-      }
-      console.log(this.childObjectCurrency.selectedCurrency)
-      this.childObjectCurrency.warnMessage = this.$refs.changePickStatus
-      this.childObjectCurrency.masterCurrensyList = this.currencyObjectsList
-      console.log(this.childObjectCurrency)
-      await this.$refs.child.currencyForChart();
-    },   
+      this.childObjectBotCurrency.selectedCurrency = this.currencyInfoChart      
+      this.childObjectBotCurrency.warnMessage = this.$refs.changePickStatus
+      this.childObjectBotCurrency.masterCurrensyList = this.currencyObjectsList
+      console.log(this.childObjectBotCurrency)
+      await this.$refs.child.currencyForChart();      
+    },
+    currencyShortNameFromComponent(data) {
+      this.currencyShortName = data;
+      this.currencyInfoChart=this.currencyShortName
+    },
+    currencySelectOnHand() {
+      this.currencyShortNameOnHand = this.currencyInfo.substring(0, 3);
+      this.currencyInfo=this.currencyShortNameOnHand
+      this.childObjectTopCurrency.selectedCurrency=this.currencyShortNameOnHand
+          
+    },
     async axiosDataCurrencyArray() {
       var currencyArrayShortNameList;
       await
@@ -166,7 +169,7 @@ export default {
         return 0;
       });
       this.currencyArrayForSelectOnHand = this.currencyArrayForSelect;
-      this.currencyShortName = this.currencyBotSpace.substring(0, 3);
+      this.currencyShortName = this.currencyInfoChart.substring(0, 3);        
     },
 
     valueAfterChange() {
